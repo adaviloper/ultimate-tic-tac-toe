@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cd4deyvh3xn52"]
+
+[node name="board" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 337.0
+offset_top = 100.0
+offset_right = 377.0
+offset_bottom = 123.0
+text = "Tic-Tac-Toe"
