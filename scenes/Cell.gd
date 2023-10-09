@@ -7,7 +7,6 @@ func _ready():
 
 func _draw():
 	var collision = get_node("CollisionShape2D").shape.get_rect()
-	draw_rect(Rect2(collision.position.x, collision.position.y, collision.size.x, collision.size.y), Color.CORNSILK, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

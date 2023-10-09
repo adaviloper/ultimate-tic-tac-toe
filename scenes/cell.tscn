@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://scenes/Cell.gd" id="1_hqyxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag0or"]
-size = Vector2(50, 50)
+size = Vector2(120, 120)
 
 [node name="Cell" type="Area2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_hqyxt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
