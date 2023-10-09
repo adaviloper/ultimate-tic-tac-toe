@@ -1,6 +1,22 @@
-[gd_scene format=3 uid="uid://cd4deyvh3xn52"]
+[gd_scene load_steps=3 format=3 uid="uid://cd4deyvh3xn52"]
+
+[ext_resource type="PackedScene" uid="uid://cr45l6mjdqp15" path="res://scenes/cell.tscn" id="1_58yx5"]
+
+[sub_resource type="GDScript" id="GDScript_tuypk"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="board" type="Node2D"]
+script = SubResource("GDScript_tuypk")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 337.0
@@ -8,3 +24,6 @@ offset_top = 100.0
 offset_right = 377.0
 offset_bottom = 123.0
 text = "Tic-Tac-Toe"
+
+[node name="Cell" parent="." instance=ExtResource("1_58yx5")]
+position = Vector2(380, 178)

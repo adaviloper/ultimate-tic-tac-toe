@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr45l6mjdqp15"]
+
+[ext_resource type="Script" path="res://scenes/Cell.gd" id="1_hqyxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag0or"]
+size = Vector2(50, 50)
+
+[node name="Cell" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_hqyxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ag0or")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
