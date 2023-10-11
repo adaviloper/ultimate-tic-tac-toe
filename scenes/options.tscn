@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://i4mr1tpvf62k"]
+
+[node name="board" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 337.0
+offset_top = 100.0
+offset_right = 399.0
+offset_bottom = 126.0
+text = "Options
+"
