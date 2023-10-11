@@ -50,10 +50,6 @@ func _draw():
 		Color.BLACK, lineWidth, 
 		true
 	)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
 
 [node name="board" type="Node2D"]
@@ -64,4 +60,4 @@ offset_left = 337.0
 offset_top = 100.0
 offset_right = 377.0
 offset_bottom = 123.0
-text = "Tic-Tac-Toe"
+text = "Ultimate Tic-Tac-Toe"
