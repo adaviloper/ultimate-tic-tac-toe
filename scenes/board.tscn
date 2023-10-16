@@ -1,59 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd4deyvh3xn52"]
+[gd_scene load_steps=4 format=3 uid="uid://cd4deyvh3xn52"]
 
-[sub_resource type="GDScript" id="GDScript_tuypk"]
-script/source = "extends Node2D
+[ext_resource type="Script" path="res://scenes/GameManager.gd" id="1_0my1i"]
+[ext_resource type="Script" path="res://scenes/GameUI.gd" id="2_2yfjp"]
+[ext_resource type="PackedScene" uid="uid://c66ngh5052w5x" path="res://Player.tscn" id="3_q7nyv"]
 
-var startX : int = 350
-var startY : int = 200
-var width : int = 360
-var height : int = width
-var cellWidth : int = width / 3
-var lineWidth : int = 4
-const NUMBER_OF_ROWS : int = 3
-const NUMBER_OF_COLS : int = 3
-const NUMBER_OF_CELLS : int = NUMBER_OF_ROWS * NUMBER_OF_COLS
-var cell_scene = preload(\"res://scenes/cell.tscn\")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	for i in NUMBER_OF_ROWS:
-		for j in NUMBER_OF_COLS:
-			var cell = cell_scene.instantiate()
-			add_child(cell)
-			cell.position.x = startX + (cellWidth / 2) + (cellWidth * (i % 3))
-			cell.position.y = startY + (cellWidth / 2) + (cellWidth * (j % 3))
-
-	pass
-
-func _draw():
-	draw_line(
-		Vector2(startX, startY + (width / 3)),
-		Vector2(startX + width, startY + (width / 3)), 
-		Color.BLACK, lineWidth, 
-		true
-	)
-	draw_line(
-		Vector2(startX, startY + (width * 2 / 3)),
-		Vector2(startX + width, startY + (width * 2 / 3)), 
-		Color.BLACK, lineWidth, 
-		true
-	)
-	draw_line(
-		Vector2(startX + (width / 3), startY),
-		Vector2(startX + (width / 3), startY + width), 
-		Color.BLACK, lineWidth, 
-		true
-	)
-	draw_line(
-		Vector2(startX + (width * 2 / 3), startY),
-		Vector2(startX + (width * 2 / 3), startY + width), 
-		Color.BLACK, lineWidth, 
-		true
-	)
-"
-
-[node name="board" type="Node2D"]
-script = SubResource("GDScript_tuypk")
+[node name="Board" type="Node2D" node_paths=PackedStringArray("playerX", "playerO")]
+script = ExtResource("1_0my1i")
+playerX = NodePath("PlayerX")
+playerO = NodePath("PlayerO")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 337.0
@@ -61,3 +15,11 @@ offset_top = 100.0
 offset_right = 377.0
 offset_bottom = 123.0
 text = "Ultimate Tic-Tac-Toe"
+
+[node name="GameUI" type="Node2D" parent="."]
+script = ExtResource("2_2yfjp")
+
+[node name="PlayerX" parent="." instance=ExtResource("3_q7nyv")]
+isX = true
+
+[node name="PlayerO" parent="." instance=ExtResource("3_q7nyv")]
